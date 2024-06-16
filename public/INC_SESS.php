@@ -2,7 +2,7 @@
 //try{
 	session_cache_limiter('nocache');
 	session_start();
-	define("URL","https://dev.revoise.com/cloths/public/");
+	define("URL","http://localhost/shoe-bay/public/");
 	include "INC_DB.php";
-	define('BASE', 'https://dev.revoise.com/cloths/public/');
+	define('BASE', 'http://localhost/shoe-bay/public/');
 ?>

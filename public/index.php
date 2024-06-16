@@ -13,13 +13,13 @@ include "INC_HEAD.php";
 <!--<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 <script src="js/bootstrap.min.js"></script>-->
-<link href="<?php echo BASE; ?>css/x1-cards.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x1-cards.css?sdf" rel="stylesheet">
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Pacifico&display=swap');
+
 
 #a1{color: #f14428; text-decoration: none;background: var(--color-3);}
 #bt5{background-position: -24px 0px;}
-.x1s{height: 33px;}
+/*.x1s{height: 33px;}*/
 /* boostrap issues */
 #in1{line-height: 1}
 body{margin:0;}
@@ -145,10 +145,7 @@ body{margin:0;}
     </figure>
 </div>
 
-
-
-<section id="zse2">
-	<div class="w">
+    <div class="w">
         <div class="rikzd50">
             <img src="img/web/web-1.jpg" class="riki50">
             <div class="rikzd51">
@@ -157,6 +154,44 @@ body{margin:0;}
                 <a href="#" class="rika50">Show More</a>
             </div>
         </div>
+    </div>
+
+    <section id="zse3">
+        <div class="w">
+            <h2 class="zh2">Our <span class="zs2">Products</span></h2>
+            <p class="zp1">Cellers of Western Road is a friendly, local off-license offering a large selection of beers, wines and spirits. </p>
+
+            <div class="r">
+                <?php
+                $q2 = $db->prepare("SELECT * FROM `items` WHERE `az`=? ORDER BY RAND() DESC LIMIT ?");
+                $q2->execute(array(1,8));
+                $row = $q2->fetchAll();
+                if(count($row)>0){
+                    foreach($row as $r){
+                        ?>
+                        <div class="c321 x1d">
+                            <span class="x1s"><?php echo $r['na']; ?></span>
+                            <a class="a2" href="item/<?php echo $r['uz']; ?>"><img src="items/<?php echo $r['iz']; ?>" alt="<?php echo $r['na']; ?>" class="x1i"></a>
+                            <span class="x1s3">
+						<span class="x1s4">R <?php echo $r['pr']; ?></span>
+                            <a class="a2" href="item.php?c=<?php echo $r['uz']; ?>"><button class="x1bt x1bt1"><img src="css/view.svg" class="x1i100" alt=""></button></a>
+                            <a class="a2" href="shopping"><form action="shopping/index.php" method="post"><input type="hidden" name="item" value="<?php echo $r['idz']; ?>"><button class="x1bt x1bt2" type="submit"><img class="x1i100" src="css/buy.svg" alt=""></button></form></a>
+                        </span>
+                        </div>
+                        <?php
+                    }
+                }else{
+                    echo "No Items Found";
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+
+
+
+<section id="zse2">
+<div class="w">
 		<h2 class="zh2" id="zh2">All Categories</h2>
 		<div class="r">
 			<?php
@@ -183,37 +218,7 @@ body{margin:0;}
 	</div>
 </section>
 
-<section id="zse3">
-<div class="w">
-	<h2 class="zh2">Our <span class="zs2">Products</span></h2>
-	<p class="zp1">Cellers of Western Road is a friendly, local off-license offering a large selection of beers, wines and spirits. </p>
-	
-	<div class="r">
-		<?php
-			$q2 = $db->prepare("SELECT * FROM `items` WHERE `az`=? ORDER BY RAND() DESC LIMIT ?");
-			$q2->execute(array(1,8));
-			$row = $q2->fetchAll();
-			if(count($row)>0){
-				foreach($row as $r){
-				?>
-				<div class="c321 x1d">
-					<span class="x1s"><?php echo $r['na']; ?></span>
-					<a class="a2" href="item/<?php echo $r['uz']; ?>"><img src="items/<?php echo $r['iz']; ?>" alt="<?php echo $r['na']; ?>" class="x1i"></a>
-					<span class="x1s3">
-						<span class="x1s4">£<?php echo $r['pr']; ?></span>
-						<a class="a2" href="item/<?php echo $r['uz']; ?>"><button class="x1bt x1bt1">View</button></a>
-						<a class="a2" href="shopping"><form action="shopping/index.php" method="post"><input type="hidden" name="item" value="<?php echo $r['idz']; ?>"><button class="x1bt x1bt2" type="submit">Buy</button></form></a>
-					</span>
-				</div>
-		<?php
-						}
-					}else{
-						echo "No Items Found";						
-					}		
-				?>
-	</div>
-</div>
-</section>
+
 
 <script>
 function openNav() {
