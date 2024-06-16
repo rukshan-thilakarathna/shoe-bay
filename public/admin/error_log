@@ -1,0 +1,11 @@
+[02-Mar-2020 13:47:03 Europe/London] PHP Notice:  Undefined variable: err in /home/cellersw/public_html/admin/_edit-order.php on line 67
+[02-Mar-2020 13:47:03 Europe/London] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/cellersw/public_html/admin/_edit-order.php on line 67
+[02-Mar-2020 13:47:30 Europe/London] PHP Notice:  Undefined variable: err in /home/cellersw/public_html/admin/_edit-order.php on line 67
+[02-Mar-2020 13:47:30 Europe/London] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/cellersw/public_html/admin/_edit-order.php on line 67
+[25-Apr-2020 19:12:28 Europe/London] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'camden-hells-x24' for key 'uz' in /home/cellersw/public_html/admin/_add-item.php:167
+Stack trace:
+#0 /home/cellersw/public_html/admin/_add-item.php(167): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/cellersw/public_html/admin/_add-item.php on line 167
+[21-May-2020 10:37:08 Europe/London] PHP Notice:  Undefined variable: err in /home/cellersw/public_html/admin/_edit-order.php on line 67
+[21-May-2020 10:37:08 Europe/London] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/cellersw/public_html/admin/_edit-order.php on line 67

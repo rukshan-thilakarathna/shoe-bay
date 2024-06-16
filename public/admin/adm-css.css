@@ -1,0 +1,60 @@
+.w{width: 1200px; margin:0 auto;}
+#n1{background:#fdd0a0; width: 100%; margin: 50px 0; text-align: center;}
+.a1{display: inline-block; color: #fff; text-transform: uppercase; padding:8px 15px; text-decoration: none;font-family: 'Cuprum', sans-serif; font-size:19px; line-height:1.5;}
+.a1:hover{color: #f14428; text-decoration: none;  background:#fdd0a0;}
+p,h1,h2,h3,.a0{font-family: 'Cuprum', sans-serif; }
+body{background:linear-gradient(90deg,transparent,#000),url('../img/home-bg.jpg') no-repeat center top #181817;background-size: 100%;margin:0;}
+p{color: #ccc; font-size: 19px; line-height: 1.5; text-align: center;}
+h1{color: #fff; font-size: 40px; text-transform: uppercase; margin:50px 0 30px;}
+h1,h2,h3{font-weight: bold; text-align: center;}
+h2{color: #ccc;}
+/*.a1::after{content: url('css/i1.svg');}*/
+.r{display:flex;flex-wrap:wrap;justify-content:center;}
+.c31,.c321{width: 33.33%; padding:15px; box-sizing:border-box;}
+#i1{width: 217px; height: 88px;}
+.e1{text-align: center;}
+.bt{background:url('../css/i0.svg') no-repeat center center; float:left; border:0; }
+
+
+
+#bt1{background-position: 0px 0px; width: 22px; height: 20px;}
+#bt2{background-position: -100px -22px; width: 22px; height: 20px;}
+#bt2:hover{background-position: -100px 0px;transition:1s all;}
+#bt3{background-position: -72px -22px; width: 26px; height: 20px;}
+#bt3:hover{background-position: -72px 0px;transition:1s all;}
+#bt4{background-position: -48px -22px; width: 22px; height: 20px;}
+#bt4:hover{background-position: -48px 0px;transition:1s all;}
+#bt5{background-position: -24px -22px; width: 22px; height: 20px;}
+#bt5:hover{background-position: -24px 0px;transition:1s all;}
+#bt2,#bt3,#bt4,#bt5{margin-left: 20px; float: right;}
+#in1{ width: 180px; padding:8px 10px; border:0; float: left; border-radius: 20px; background:transparent; box-sizing:border-box;font-family: 'Cuprum', sans-serif; color:#fff; font-size:14px;outline: none;}
+#bt0{background-position: 0 -127px; width: 18px; height: 18px; float: right;margin-top: 6px; margin-right: 8px;}
+#f0{width: 210px; position: relative; display: block; float: right;background:rgba(255,255,255,.2);margin-top:20px;border-radius: 20px; clear: both;}
+.a0{padding:8px 10px; text-align: center; background:#333; text-decoration: none; color: #fff;font-size: 15px; text-transform: uppercase; width: 170px; display: inline-block; margin-right: 10px; margin-top: 20px; font-weight: bold; border:0;}
+.a0:hover{background:#ccc;text-decoration: none; color: #000;}
+.e2{background:#aa0000;}
+.a2{text-decoration: none;}
+#ft{border-top:3px solid rgba(255,255,255,.2); background:transparent; padding:30px 0; margin-top: 50px;}
+.a3{display: inline-block; float:left; clear:both; text-decoration: none; color:#656464; text-decoration: none; font-size: 17px;font-family: 'Cuprum', sans-serif; line-height:1.5;}
+.a3:hover{text-decoration: none;color: #aa0000;}
+#p0{color:#656464; text-align:center; }
+.s3:hover #s3{border-bottom-color:#aa0000; }
+.s3{cursor: pointer; text-align: right; display: block; clear:both; float:right; margin-bottom: 20px;font-family: 'Cuprum', sans-serif;text-decoration: none; color: #878888; font-size: 14px; margin:0 0 2px;}
+#s3{ border-left: 12px transparent solid;
+    border-right: 12px transparent solid;
+    background: transparent;
+    width: 0;
+    height: 0;
+    float: right;border-bottom: 12px #656464 solid; margin:4px 5px 0 7px;}
+    
+    
+/* x1 common */
+#x1bt{background-position: -124px 0px; width: 22px; height: 20px; margin:10px; float: right; transition:1s all;}
+#x1d{display: table; margin: 50px auto;}
+#x1d1{border-right:2px solid rgba(255,255,255,.2); display: table-cell; vertical-align: top;border-top:2px solid rgba(255,255,255,.2);background:rgba(16, 16, 16, 0.35);}
+#x1d2{display: table-cell; vertical-align: top;border-top:2px solid rgba(255,255,255,.2);}
+#x1n{transition:1s all; width: 228px; clear: both; overflow: hidden; padding:0 20px 20px;}
+/*.x1s0{ font-weight:bold; font-size:26px; color:#eee; height: 30px; overflow: hidden; margin: 30px 0 10px;}
+.x1a{ margin:1px 0; text-decoration:none; color:#eee; font-size:18px; border-bottom:1px solid #444; padding:10px; text-shadow: 0 0 6px #000;}
+.x1a:hover{color: #f14428; background:#222;}
+.x1s0,.x1a{text-transform: uppercase;font-family: 'Cuprum', sans-serif; display:block;}*/

@@ -1,0 +1,17 @@
+ .x3f{width: 400px; margin:20px auto 50px; display: block; border:1px solid rgba(255,255,255,.2); padding:20px; border-radius: 4px;}
+ .x3lb{width: 100%; overflow: hidden; clear: both; display: block; margin:15px 0;}
+ .x3s{float: left;display: inline-block;color:#eee;
+ text-transform: uppercase; margin-top:10px; width: 35%;}
+.x3d{width: 60%; float: right;}
+ .x3in{float: right; background:#afaaaa; border:0; padding:10px; width:100%;border-radius: 4px; color:#111; box-sizing: border-box;}
+ textarea.x3in{height: 100px;}
+ .x3in:focus{outline: none;}
+ .x3s,.x3in{box-sizing:border-box;font-family: 'Cuprum', sans-serif; font-size:16px;}
+ .x3in2{ width: 100%; padding:10px; border:0;background:#aa0000; color:#fff; text-transform: uppercase;font-weight: bold;font-family: 'Cuprum', sans-serif; font-size:16px;border-radius: 4px; margin:5px 0;}
+ .x3s1{display: block; margin:2px;color:#808080; font-size: 12px; padding-top:5px;}
+ .x3ok,.x3ko{ font-size:15px;margin:40px 0 -20px;padding:10px; border-radius: 4px; font-family: 'Cuprum', sans-serif; text-align:center;}
+ .x3e{border:2px solid #ff7070;}
+.x3s2{color:#ff7070; padding:5px; clear: both; font-family: 'Cuprum', sans-serif;  }
+.x3ko{border:4px solid #c11818;color:#c11818;}
+.x3ok{color:#67e674;border:4px solid #02b113;}
+.x3a{text-decoration: none;}

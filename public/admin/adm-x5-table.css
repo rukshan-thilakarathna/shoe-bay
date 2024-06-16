@@ -1,0 +1,29 @@
+.x5t{display: table; width: 930px;border-bottom:1px solid #222;border-right:1px solid #222;}
+.x5r{display: table-row;}
+.x5c{display: table-cell; color: #fff;font-family: 'Cuprum', sans-serif; border-top:1px solid #222;border-left:1px solid #222; padding:5px; font-size:16px;}  
+.x5i{width: 80px;}
+.x5e{background:#333; padding:10px 5px; font-size:16px;}
+.x5e1{background:rgba(72,72,72,0.3);}
+.x5e2{background:rgba(115,90,51,0.4);}
+.x5e0{ background:#1b191a;}
+.x5e3{ background:#5f3c40;}
+.x5a1{    padding: 5px 8px;
+    margin: 2px;
+    background: #222;
+    color: #ccc;
+    text-decoration: none;}
+.x5a2{color: #444;}
+#x5bt{font-family: 'Cuprum', sans-serif; text-transform:uppercase; color:#eee; font-size:16px; border:1px solid #444; background:rgba(72,72,72,0.3); margin:5px auto; width:140px; display:block; border-radius:4px; cursor:pointer;}
+#x5i{float: right; width: 25px; margin:5px; cursor: pointer;}
+#x5s{float: left; padding:10px;}
+#x5n{margin:20px 0;}
+.x5i1{width: 25px; margin:5px 10px;}
+.x5ys{display: inline-block; cursor: pointer;}
+.x5ys1{display: inline-block; cursor: pointer;}
+#x5f .x3lb{width: 31%; margin:10px; box-sizing:border-box; float: left;}
+#x5f .x3fs{width: 100%;}
+#x5f .x3s{color:#868383;}
+#x5f{display: block; margin-bottom: 10px;}
+#x5f0 .x3fs{border:0; clear: both;}
+#x5f0 .x3s{width: 100%; display: block; float: inherit;}
+#x5f0 .x3d{width: 100%; float: inherit; margin-top: 10px;}

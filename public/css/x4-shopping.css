@@ -1,0 +1,17 @@
+#x4d{
+	overflow: hidden; padding:10px; margin:10px auto;
+    overflow: hidden;
+    padding: 10px;
+    margin: 30px auto 0;
+
+    display: flex;
+    justify-content:center;
+    background:url(i2.svg) repeat-x center center;
+ }
+.x4a,.x4bt1,.x4bt2{padding:8px 5px; font-family: 'Cuprum', sans-serif; font-size:18px; background:#383838; border-radius: 20px; margin:5px 20px; text-align:center; width:225px; text-decoration:none; display:block; color:#fff;}
+.x4a{ border:5px solid #383838;}
+.x4e{background:linear-gradient(#D60000,#aa0000);}
+.x4e:hover{background:linear-gradient(#E60505,#B90C0C);}
+.x4bt1{float: left;}
+.x4bt2{float: right;}
+.x4bt1,.x4bt2{border-radius: 5px; padding:10px; margin:20px 0; width: 220px; border:0; text-transform: uppercase; font-size: 16px;}

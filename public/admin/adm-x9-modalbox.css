@@ -1,0 +1,26 @@
+#x9d{
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0; top: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background:rgba(0,0,0,0.7);
+}
+#x9d .x3fs{border:0;}
+.x9d{
+	background:#1b0000;
+	margin:10% auto;
+	padding:30px;
+	border:1px solid #333;
+	width: 60%;
+	box-sizing:border-box;
+	border-radius: 6px;
+}
+#x9i{width: 35px; font-weight: bold; cursor: pointer; float: right;}
+/*for _edit-ad page*/
+.x9e{margin-top: 20px;}
+#x9d h2{color:#717171; font-size:18px; font-weight: bold; margin-top:30px;}
+#x9d h1{text-align: center;}
