@@ -6,7 +6,20 @@
 <script>
 function scrollToTop(k){var t;if(k>0){k-=20;window.scrollTo(0,k);t=setTimeout(function(){scrollToTop(k-=20);},10);}else clearTimeout(t);}
 _('ys3').onclick=function(){scrollToTop(document.documentElement.scrollHeight);}
-</script>	
+</script>
+    <script>
+        function myCategoryFunction() {
+            var x = document.getElementById("zyca").value;
+
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                console.log(this.responseText)
+            }
+            xhttp.open("GET", "admin/ajaxAddItemCategory.php?mainCategoryId="+x, true);
+            xhttp.send();
+        }
+    </script>
 </footer>
 </body>
 </html>

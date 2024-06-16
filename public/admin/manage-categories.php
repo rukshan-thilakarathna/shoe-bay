@@ -38,8 +38,8 @@ foreach($cat as $rc){
 
 
 
-$q="SELECT * FROM `categories` WHERE 1 ";
-$a = array();
+$q="SELECT * FROM `categories` WHERE `scid` = ? ";
+$a = array(0);
 /// search start
 $zysna = "";
 $zysid = "";

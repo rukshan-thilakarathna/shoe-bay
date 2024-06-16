@@ -101,14 +101,13 @@ function imgUp($imgArr,&$e1,&$e2,&$e3,&$e4,&$e5,$fileName="") {
 	return $img;
 }
  	
-	$sc = $db->prepare("SELECT `cid`, `cn` FROM `categories` WHERE `az`=?");
-	$sc->execute([1]);
+	$sc = $db->prepare("SELECT `cid`, `cn` FROM `categories` WHERE `az`=? AND `scid`=?");
+	$sc->execute([1,0]);
 	$cat = $sc->fetchAll();
 	$arr_cat = array();
 	foreach($cat as $rc){
 		$arr_cat[$rc['cid']]=$rc['cn'];
 	}
-
 		if(isset($_POST['post'])){
 			
 			$iz = "";
@@ -204,7 +203,7 @@ function imgUp($imgArr,&$e1,&$e2,&$e3,&$e4,&$e5,$fileName="") {
 			<label class="x3lb">
 				<span class="x3s">Category *</span>
 				<div class="x3d">
-					<select class="x3in" name="zyca" id="zyca">
+					<select class="x3in" name="zyca" id="zyca" onchange="myCategoryFunction()">
 						<option value=""></option>
 						<?php 
 							foreach($arr_cat as $k => $v){
@@ -214,6 +213,22 @@ function imgUp($imgArr,&$e1,&$e2,&$e3,&$e4,&$e5,$fileName="") {
 					</select>
 				</div>
 			</label>
+
+            <label class="x3lb">
+                <span class="x3s">Category *</span>
+                <div class="x3d">
+                    <select class="x3in" name="zyca" id="subzyca">
+                        <option value=""></option>
+                        <?php
+                        foreach($arr_cat as $k => $v){
+                            echo '<option value="',$k,'">',$v,'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+            </label>
+
+
 			<label class="x3lb">
 				<span class="x3s">Price *</span>
 				<div class="x3d">
@@ -305,3 +320,4 @@ _('zyna').oninput=function () {
 	_('zyuz').value=na;
 }
 </script>
+
