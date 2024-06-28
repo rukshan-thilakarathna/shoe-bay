@@ -119,7 +119,7 @@ if(isset($_POST['zybfn'])){
 $zyst = $_SESSION['bst'];
 include "../INC_HEAD.php"; ?>
 <title>Billing - Shipping details</title>
-<link href="<?php echo BASE; ?>css/x3-forms.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x3-forms.css?hhj" rel="stylesheet">
 <link href="<?php echo BASE; ?>css/x4-shopping.css" rel="stylesheet">
 <style>
 #zd{width:100%; box-sizing:border-box; display:flex;flex-wrap:wrap;}

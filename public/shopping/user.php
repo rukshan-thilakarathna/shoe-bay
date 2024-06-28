@@ -115,7 +115,7 @@ if(!empty($_SESSION['uid'])){
 }
 include "../INC_HEAD.php"; ?>
 <title>Customer Information</title>
-<link href="<?php echo BASE; ?>css/x3-forms.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x3-forms.css?Asd" rel="stylesheet">
 <link href="<?php echo BASE; ?>css/x4-shopping.css" rel="stylesheet">
 <style>
 #zd{width:100%; box-sizing:border-box; display:flex;flex-wrap:wrap;justify-content:space-between;}

@@ -70,9 +70,9 @@ if(isset($_POST['name'])){
 include "../INC_HEAD.php"; 
 ?>
 <title>Payment - SukeeFashion</title>
-<link href="<?php echo BASE; ?>css/x3-forms.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x3-forms.css?jk" rel="stylesheet">
 <link href="<?php echo BASE; ?>css/x4-shopping.css" rel="stylesheet">
-<link href="<?php echo BASE; ?>css/x6-table.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x6-table.css?ASad" rel="stylesheet">
 <script src="https://cdn.worldpay.com/v1/worldpay.js"></script>
 <style>
 #zd{width:100%; box-sizing:border-box; display:flex;flex-wrap:wrap;justify-content:space-between;}

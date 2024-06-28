@@ -24,7 +24,7 @@ p,h1,h2,h3,.a0,li{font-family: var(--font1); }
 body{margin:0;background: white}
 p{color: rgb(80, 78, 78); font-size: 19px; line-height: 1.5;}
 li{font-size: 19px; line-height: 1.5;color: #ccc;}
-h1{color: #fff; font-size: 40px; text-transform: uppercase; margin:50px 0 30px;}
+h1{color: var(--color-2); font-size: 40px; text-transform: uppercase; margin:50px 0 30px;}
 h1,h2,h3{font-weight: bold;}
 h2{color: var(--color-3);}
 /*.a1::after{content: url('css/i1.svg');}*/

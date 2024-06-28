@@ -6,7 +6,7 @@
 .x2li{border-top:1px solid rgba(255,255,255,.2); padding:10px 0; }
 .x2s1,.x2s2{font-family: 'Cuprum', sans-serif; display:inline-block; font-size:18px;}
 .x2li:last-child{border:0;}
-.x2s1{width: 20%; color:#ccc; text-indent: 20px;}
+.x2s1{width: 20%; color:#000; text-indent: 20px;}
 .x2s2{color:#848484;}
 .x2sl{background:#333; padding:5px; border:0; color: #ccc;font-family: 'Cuprum', sans-serif; font-size:16px; height:33px; margin-right:10px;}
 .x2i{display: block; width: 120px; margin:0 auto;}

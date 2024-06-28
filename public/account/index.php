@@ -42,7 +42,7 @@ date_default_timezone_set("Europe/London");
 
 include "../INC_HEAD.php"; 
 ?>
-<link href="<?php echo BASE; ?>css/x3-forms.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>css/x3-forms.css?ASf" rel="stylesheet">
 <style>
 #bt4{background-position: -48px 0px;}
  .zh1{margin-top: 100px;}

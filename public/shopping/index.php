@@ -39,7 +39,7 @@ include "../INC_HEAD.php";
 #bt2{background-position: -100px 0px;}
 #zd{display: table; width: 100%;}
 .zr{display: table-row;}
-.zr > div{display: table-cell; vertical-align: middle; padding:10px 20px;font-family: 'Cuprum', sans-serif; color:#ccc; font-size:18px;background:rgba(255,255,255,.2);}
+.zr > div{display: table-cell; vertical-align: middle; padding:10px 20px;font-family: 'Cuprum', sans-serif; color:#585151; font-size:18px;background:rgba(255,255,255,.2);}
 .zi{width: 120px;}
 .zc3{text-align: right; border-right:1px solid rgba(0,0,0,.2); }
 .ze{background:rgba(255,255,255,.2);}

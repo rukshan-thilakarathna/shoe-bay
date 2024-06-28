@@ -19,7 +19,7 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 	if($s = $q->fetch()){
 		
 include "INC_HEAD.php"; ?>
-<link href="css/x2-item.css" rel="stylesheet">
+<link href="css/x2-item.css?sfs" rel="stylesheet">
 <title><?php echo $s['mt']; ?></title>
 <meta name="description" content="<?php echo $s['md']; ?>">
 <style>
