@@ -14,8 +14,12 @@ include "../INC_HEAD.php";
 			 'item_name' => $r['na'],
 			 'item_price' => $r['pr'],
 			 'item_img' => $r['iz'],
+			 'item_color' => $_POST['color'] ?? null ,
+			 'item_size' => $_POST['size'] ?? null ,
 			 'item_qty' => $qty
 			);
+
+			
 		}
 		header("Location:".URL."shopping");
 	}

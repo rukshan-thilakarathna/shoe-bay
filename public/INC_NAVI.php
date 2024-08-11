@@ -1,72 +1,78 @@
 </head>
 <body>
-<header id="hd">
-	<div class="w">
-		<div class="rikd1">
-			<div class="e1"><a href="" class="a2"><img src="img/logo.png" alt="Sukee_Fashion_Hub" id="i1"></a></div>
-            <div class="rikd2">
-                <nav id="n1">
-                    <ul class="rikul0">
-                        <li class="rikli0"><a href="" class="rika1">Home</a></li>
-                        <li class="rikli0"><a href="http://localhost/cloths/public/" class="rika1">About Us</a></li>
-                        <li class="rikli0">
-                            <a href="http://localhost/cloths/public/" class="rika1">Products</a>
-                            <ul class="rikul1">
-
-                                <?php
-                                    $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
-                                    $sc->execute([1,0]);
-                                    $cat = $sc->fetchAll();
-                                    foreach($cat as $key => $c){
-                                ?>
-                                        <li class="rikli1">
-                                            <a href="category.php?c=<?php echo $c['uz'] ?>" class="rika1"><?php echo $c['cn'] ?></a>
-                                            <ul class="rikul3">
-                                                <?php
-                                                    $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
-                                                    $sc->execute([1,$c['cid']]);
-                                                    $cat = $sc->fetchAll();
-                                                    foreach($cat as $key => $c){
-                                                ?>
-                                                    <li class="rikli3">
-                                                        <a href="category.php?c=<?php echo $c['uz'] ?>" class="rika1"><?php echo $c['cn'] ?></a>
-                                                        <ul class="rikul4">
-                                                            <?php
-                                                            $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
-                                                            $sc->execute([1,$c['cid']]);
-                                                            $cat = $sc->fetchAll();
-                                                            foreach($cat as $key => $c){
-                                                                ?>
-                                                                    <li class="rikli4">
-                                                                        <a href="category.php?c=<?php echo $c['uz'] ?>" class="rika1"><?php echo $c['cn'] ?></a>
-                                                                    </li>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </ul>
-                                                    </li>
-                                                <?php
-                                                    }
-                                                ?>
-                                            </ul>
-                                        </li>
-                                <?php
-
-                                    }
-                                ?>
-                            </ul>
-                        </li>
-                        <li class="rikli0"> <a href="http://localhost/cloths/public/" class="rika1">Contact Us</a></li>
-                    </ul>
-                    <a href="javascript:void(0)" class="closebtn a1" onclick="closeNav()" >&times;</a>
-
-
-
-
-
-
-                </nav>
-                <div class="rikd2">
+    <!-- header -->
+    <header id="hd">
+        <div id="d1">
+            <div id="d4" class="w">
+                <!-- <ul id="u1">
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                    <li class="l1">
+                        <a href="#" class="a1">
+                            <img src="img/icon/view.png" alt="" class="i1">
+                        </a>
+                        <div class="d2">
+                            Follow On Facebook
+                            <div class="d3"></div>
+                        </div>
+                    </li>
+                </ul> -->
+                <span id="s1">Click me to get 10% off everything + Free Shipping!</span>
+                <span id="s1">Mail: Thilakarathnarukshan9@gmail.com</span>
+                <span id="s1">tel: 0762005399</span>
+            </div>
+        </div>
+        <div id="d5">
+            <div id="d6" class="w">
+                <div id="d51">
+                    <a href="#" id="a50"><img src="img/icon/menu.png" alt="menu" id="i6"></a>
+                    <a href="#" id="a3"><img src="img/icon/search.png" alt="search" id="i2"></a>
+                </div>
+                <a href="#" id="a4"><img src="img/logo.png" alt="logo" id="i3"></a>
+                <div id="d7">
                     <nav id="n2">
                         <a href="shopping" class="a4"><button class="bt" id="bt2"></button>
                             <?php
@@ -80,6 +86,33 @@
                     </nav>
                 </div>
             </div>
-		</div>
-	</div>
-</header>
+        </div>
+        <div id="d9">
+            <div id="d10" class="w">
+                <ul id="u3">
+                    <?php
+                        $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
+                        $sc->execute([1,0]);
+                        $cat = $sc->fetchAll();
+                        foreach($cat as $key => $c){
+                    ?>
+                    <li class="l3">
+                        <a href="category.php?c=<?php echo $c['uz'] ?>" class="a7"><?php echo $c['cn'] ?></a>
+                        <ul class="u4">
+                            <div class="d50"></div>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                        </ul>
+                    </li>
+                   <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </header>

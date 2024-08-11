@@ -11,6 +11,20 @@ _('ys3').onclick=function(){scrollToTop(document.documentElement.scrollHeight);}
         function myCategoryFunction() {
             var x = document.getElementById("zyca").value;
 
+            // if(x == 1){
+            //     document.getElementById('Colour').style.display='block';
+            //     document.getElementById('Size').style.display='block';
+            // }else{
+            //     document.getElementById('Colour').style.display='none';
+            //     document.getElementById('Size').style.display='none';
+            // }elseif(x == 28){
+
+            //     document.getElementById('Colour').style.display='block';
+
+            // }else{
+            //     document.getElementById('Colour').style.display='none';
+            // }
+
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 // var text = ""; // Initialize the text variable
@@ -52,6 +66,11 @@ _('ys3').onclick=function(){scrollToTop(document.documentElement.scrollHeight);}
         function mySubCategoryFunction() {
             var x = document.getElementById("subzyca").value;
 
+           
+
+
+            
+
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 // var text = ""; // Initialize the text variable
@@ -89,6 +108,69 @@ _('ys3').onclick=function(){scrollToTop(document.documentElement.scrollHeight);}
             xhttp.send();
 
 
+        }
+
+        var clickCount = 0;
+        function AddRow() {
+            clickCount++;
+            // Create a new div element to hold your component
+            var newDiv = document.createElement('div');
+            newDiv.className = 'x3d';
+            newDiv.id = 'maindiv'+clickCount;
+            newDiv.style.display = 'flex';
+            newDiv.style.marginTop = '15px';
+
+            // HTML content for the new row
+            var component = `
+                <input type="text" class="x3in" name="colour[]" value="" onkeyup="showResult(this.value,${clickCount})" id="color_input_${clickCount}" style="width: 50%;">
+                <div style="width: 50%; background: white; border-radius: 5px; margin-left: 7px;" id="color_div_${clickCount}"></div>
+                <button onclick="AddRow()" type="button" class="x3in x3in2" style="margin: 0 0 0 6px; width: 165px;">Add New</button>
+                <button onclick="removeRow('maindiv${+clickCount}')" type="button" class="x3in x3in2" style="margin: 0 0 0 6px;width: 50px;">X</button>
+            `;
+
+            // Set the innerHTML of the new div to your component HTML
+            newDiv.innerHTML = component;
+
+            // Append the newDiv to wherever you want to add this new row (e.g., a container)
+            // For example, assuming you have a container with id "container":
+            var container = document.getElementById('Colour');
+            container.appendChild(newDiv);
+        }
+
+        function AddRowSize() {
+            clickCount++;
+            // Create a new div element to hold your component
+            var newDiv = document.createElement('div');
+            newDiv.className = 'x3d';
+            newDiv.id = 'maindivd'+clickCount;
+            newDiv.style.display = 'flex';
+            newDiv.style.marginTop = '15px';
+
+            // HTML content for the new row
+            var component = `
+                <input type="text" class="x3in" name="size[]" value="" onkeyup="showResult(this.value,${clickCount})" id="color_input_${clickCount}" style="width: 103%;">
+                <button onclick="AddRow()" type="button" class="x3in x3in2" style="margin: 0 0 0 6px; width: 165px;">Add New </button>
+                 <button onclick="removeRow('maindivd${+clickCount}')" type="button" class="x3in x3in2" style="margin: 0 0 0 6px;width: 50px;">X</button>
+            `;
+
+            // Set the innerHTML of the new div to your component HTML
+            newDiv.innerHTML = component;
+
+            // Append the newDiv to wherever you want to add this new row (e.g., a container)
+            // For example, assuming you have a container with id "container":
+            var container = document.getElementById('Size');
+            container.appendChild(newDiv);
+        }
+
+        function showResult(val,id){
+                document.getElementById('color_div_'+id).style.backgroundColor = val;
+           
+            
+        }
+        function removeRow(id){
+                document.getElementById(id).remove()
+           
+            
         }
     </script>
 </footer>

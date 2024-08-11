@@ -1,10 +1,10 @@
 .x1bt{float: right; border:0; text-transform: uppercase; font-size:15px; color:#fff; padding:3px 8px; margin-left: 5px;font-family: 'Cuprum', sans-serif; width:65px;}
 #x1bt{background-position: -124px 0px; width: 22px; height: 20px; margin:10px; float: right; transition:1s all;}
-#x1bt1,.x1bt1{    background: #9b9b9b;
+#x1bt1,.x1bt1{      background: #ffffff;
     width: max-content;
     padding: 4px 15px;
     border-radius: 5px;}
-#x1bt2,.x1bt2{    background: #9b9b9b;
+#x1bt2,.x1bt2{      background: #ffffff;
     width: max-content;
     padding: 4px 15px;
     border-radius: 5px;}
@@ -25,11 +25,9 @@
     display: block;
     padding: 10px 10px 0 10px;}
     .x1s4 {
-        color: #000000;
-        font-size: 20px;
-        text-transform: uppercase;
-        float: left;
-        font-family: 'Cuprum', sans-serif;
+        display: flex;
+    margin-top: 10px;
+    justify-content: center;
     }
 #x1d{display: table; margin-top: 50px;}
 #x1d1{border-right:2px solid rgba(255,255,255,.2); display: table-cell; vertical-align: top;border-top:2px solid rgba(255,255,255,.2);background: var(--color-1);}

@@ -4,9 +4,20 @@
 	--color-1: #260502;
 	--color-2: #ec3f2e;
 	--color-3: #211f20;
-	--font1:'Nunito Sans', sans-serif;
-	--font2:'Questrial', sans-serif;
-	--font3: 'Jost', sans-serif;
+	--font-1:"Poppins", sans-serif;
+        --font-2:"Nunito", sans-serif;
+        --font-3:"Jost", sans-serif;
+        --color-f1: #f8f8f8;
+        --color-f2: #140000;
+        --color-f3: #ebebeb;
+        --color-4: #2d2d2d;
+        --color-5: #575757;
+        --color-6: #a4a4a4;
+        --color-7: #111;
+        --color-8: #ff6f61;
+        --color-9: #097c09;
+        --color-f10: #2d2d2d;
+        --color-f11: #7d7d7d;
 }
 
 a {text-decoration: none !important;}
@@ -14,9 +25,6 @@ a {text-decoration: none !important;}
 #n1{    display: flex;
 	align-items: center;}
 #i0{float: right; margin-top:-55px; margin-left:10px; margin-right: 10px;}
-#hd {
-	padding: 5px 0;
-}
 
 .a1{display: inline-block; color: #fff; text-transform: uppercase; padding:8px 15px;font-family: 'Cuprum', sans-serif; font-size:19px; line-height:1.5;}
 .a1:hover{font-weight:bold;background: var(--color-3);text-decoration: none;color:var(--color-2);}
@@ -52,7 +60,7 @@ h2{color: var(--color-3);}
 .e2{background:linear-gradient(var(--color-2),var(--color-1));}
  .e2:hover{background:#ebebeb;;}
 .a2{text-decoration: none;}
-#ft{border-top:3px solid rgba(255,255,255,.2); background:var(--color-1); padding:30px 0; margin-top: 50px;}
+#ft{border-top:3px solid rgba(255,255,255,.2);    background: var(--color-4);padding:30px 0; margin-top: 50px;}
 .a3{display: inline-block; float:left; clear:both; text-decoration: none; color:#fff; text-decoration: none; font-size: 17px;font-family: 'Cuprum', sans-serif; line-height:1.5;}
 .a3:hover{margin-left: 10px;color: #656464;}
 #p0{color:#fff; }

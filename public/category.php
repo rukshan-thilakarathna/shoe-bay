@@ -21,10 +21,7 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 <link href="css/x3-forms.css" rel="stylesheet">
 <style>
 <?php echo $s['uz']; ?>{color: #f14428; text-decoration: none;background: var(--color-3);}
-.c321{width: auto;}
 
-.x3s,.x3d{ width: 100%; display: block; float: none; margin:10px 0;}
-.x3in2{margin:10px 0;}
 #zp{text-align: center; width:500px;}
 /* pagination */
 .za1{    padding: 5px 8px;
@@ -56,45 +53,21 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 		<div id="x1d1">
 			<button class="bt" id="x1bt"></button>
 			<nav id="x1n">
-				<span class="x1s0">Filters</span>
-				<div>
-					<!--<label class="x3lb">
-						<span class="x3s">Item Name</span>
-						<div class="x3d">		
-							<input type="text" class="x3in" name="na" value="<?php echo $_GET['na'] ?? ''; ?>">
-						</div>
-					</label>-->
-					<label class="x3lb">
-						<span class="x3s">Specialty</span>
-						<div class="x3d">		
-							<select class="x3in" name="co" id="zyco">
-								<option value="All">All</option>
-								<?php 
-								$co = $_GET['na'] ?? '';
-								foreach($countries as $k){
-									echo '<option value="',$k,'" ';
-									echo isset($_GET['co']) && $_GET['co']==$k ? ' selected ' : '';
-									echo '>',$k,'</option>';										
-								}
-								?>
-							</select>
-						</div>
-					</label>
-				</div>
+
 				<span class="x1s0">All Categories</span>
 				<?php
-					$q3 = $db->prepare("SELECT * FROM `categories` WHERE `az`>?");
-					$q3->execute(array(0));
+					$q3 = $db->prepare("SELECT * FROM `categories` WHERE `az`>? AND `scid` = ? ");
+					$q3->execute(array(0,0));
 					$catmenu = $q3->fetchAll();
 					if(count($catmenu)>0){
 						foreach($catmenu as $m){
-							echo '<a href="category/',$m['uz'],'" class="x1a">',$m['cn'],'</a>';
+							echo '<a href="category.php?c=',$m['uz'],'" class="x1a">',$m['cn'],'</a>';
 						}
 					}
 				?>
 			</nav>
 		</div>	
-		<div id="x1d2">
+		<div id="x1d2" style="width: 100%">
 			<div class="r">
 				<?php
 					
@@ -132,15 +105,16 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 						
 					
 				?>
-				<div class="c321 x1d" data-co="<?php echo $r['co']; ?>">
-					<span class="x1s"><?php echo $r['na']; ?></span>
-					<a class="a2" href="item/<?php echo $r['uz']; ?>"><img src="items/<?php echo $r['iz']; ?>" alt="<?php echo $r['na']; ?>" class="x1i"></a>
-					<span class="x1s3">
-						<span class="x1s4">£<?php echo $r['pr']; ?></span>
-						<a class="a2" href="item/<?php echo $r['uz']; ?>"><button class="x1bt x1bt1">View</button></a>
-						<form action="shopping/index.php" method="post"><input type="hidden" name="item" value="<?php echo $r['idz']; ?>"><button class="x1bt x1bt2" type="submit">Buy</button></form>
-					</span>
-				</div>
+                    <div class="z3d4">
+                        <div class="z3d5"><img src="items/<?php echo $r['iz']; ?>" alt="<?php echo $r['na']; ?>" class="z3i1"></div>
+                        <div class="z3d6">
+                            <p class="z3p1"><?php echo $r['na']; ?></p>
+                            <span class="z3s2">Rs.<?php echo $r['pr']; ?></span>
+                            <span class="x1s4">
+                                <a class="a2" href="item.php?c=<?php echo $r['uz']; ?>"><button class="x1bt x1bt1"><img src="css/view.svg" class="x1i100" alt=""></button></a>
+                            </span>
+                        </div>
+                    </div>
 				<?php
 						}
 					}else{
