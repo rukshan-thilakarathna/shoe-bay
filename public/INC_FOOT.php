@@ -2,22 +2,39 @@
 	<div class="w">
 		<span class="s3" id="ys3"><span id="s3"></span>Page Top</span>
 		<div class="r">
-			<div class="c31 d01">
+			<div class="c31 d01" style="display: flex;width: 100%;">
 				<?php
-					$q3 = $db->prepare("SELECT * FROM `categories` WHERE `az`>?");
-					$q3->execute(array(0));
+					$q3 = $db->prepare("SELECT * FROM `categories` WHERE `az`>? AND `scid` = ? ");
+					$q3->execute(array(0,0));
 					$catmenu = $q3->fetchAll();
 					$counter = 0;
 					if(count($catmenu)>0){
 						foreach($catmenu as $m){
-							$counter++;
-							echo '<a href="category/',$m['uz'],'" class="a3">',$m['cn'],'</a>	';
-							if($counter==7) echo '</div><div class="c31 d01">';
-						}
-					}
-				?>
+                            $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
+                            $sc->execute([1,$m['cid']]);
+                            $cat = $sc->fetchAll();
+                ?>
+                        <div class="c31 d01">
+                            <span style="display: block;color: #ffffff;font-size: 19px;text-decoration: underline;margin-bottom: 7px;"><?php echo $m['cn']; ?></span>
+
+                            <?php
+                            foreach($cat as $key => $c){
+                                ?>
+
+                                <a href="category.php?c=<?php echo $c['uz'] ?>" class="a3"><?php echo $c['cn']; ?></a>
+
+                                <?php
+                            }
+                            ?>
+
+                        </div>
+
+                <?php
+                        }
+                    }
+                ?>
 			</div>
-			<div class="c31 d01">
+			<div class="c31 d01" style="width: 100%;display: flex;justify-content: space-between;margin-bottom: 76px;">
 				<a href="search.php" class="a3">Search</a>
 				<a href="shopping" class="a3">Shopping</a>	
 				<a href="account" class="a3">Sign In</a>	

@@ -5,8 +5,8 @@
     }
     include "INC_HEAD.php"; 
 ?>
-
 <title>Home page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="<?php echo BASE; ?>css/x1-cards.css?version=<?php echo time(); ?>" rel="stylesheet">
 <style>
     .carousel-indicators li.active{background:var(--color-3);}
@@ -27,8 +27,8 @@
         80%,90%{left: -400%;}
     }
 
-    @media screen and (max-width:600px){#zp10{text-align: center;}}
-
+    @media screen and (max-width:600px){  #zp10{text-align: center;}  }
+    @media screen and (max-width:380px){  #zp10{font-size: 15px;}  }
 </style>
 
 <?php include "INC_NAVI.php"; ?>
@@ -105,6 +105,8 @@
      </section>
 
 
+
+
 <?php
     $p = $db->prepare("SELECT * FROM `categories` WHERE `iz`<>? ORDER BY `cid` ASC ");
     $p->execute(['']);
@@ -116,8 +118,8 @@
             $row = $q2->fetchAll();
             if(count($row)>0){
 ?>
-
-    <section id="z3se1">
+    <!-- section 03 -->
+<section id="z3se1">
     <div id="z3d1" class="w">
         <div class="zd1fe">
             <h1 class="zh1fe"><?php echo $rr['cn']; ?></h1>

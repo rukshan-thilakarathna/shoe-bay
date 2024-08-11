@@ -15,8 +15,33 @@ function SE_optionsGen($array,$selected,$start=0,$end=0) {
 	}
 	return $out;
 }
-	$arr_state = array('','Avon', 'Bedfordshire', 'Berkshire', 'Bristol, City of', 'Buckinghamshire', 'Cambridgeshire', 'Cheshire', 'Cleveland', 'Cornwall', 'Cumbria', 'Derbyshire', 'Devon', 'Dorset', 'Durham', 'East Sussex', 'Essex', 'Gloucestershire', 'Greater London', 'Greater Manchester', 'Hampshire (County of Southampton)', 'Hereford and Worcester', 'Herefordshire', 'Hertfordshire', 'Isle of Wight', 'Kent', 'Lancashire', 'Leicestershire', 'Lincolnshire', 'London', 'Merseyside', 'Middlesex', 'Norfolk', 'Northamptonshire', 'Northumberland', 'North Humberside', 'North Yorkshire', 'Nottinghamshire', 'Oxfordshire', 'Rutland', 'Shropshire', 'Somerset', 'South Humberside', 'South Yorkshire', 'Staffordshire', 'Suffolk', 'Surrey', 'Tyne and Wear', 'Warwickshire', 'West Midlands', 'West Sussex', 'West Yorkshire', 'Wiltshire', 'Worcestershire', 'Antrim', 'Armagh', 'Belfast, City of', 'Down', 'Fermanagh', 'Londonderry', 'Derry, City of', 'Tyrone', 'Aberdeen, City of', 'Aberdeenshire', 'Angus (Forfarshire)', 'Argyll', 'Ayrshire', 'Banffshire', 'Berwickshire', 'Bute', 'Caithness', 'Clackmannanshire', 'Cromartyshire', 'Dumfriesshire', 'Dunbartonshire (Dumbarton)', 'Dundee, City of', 'East Lothian (Haddingtonshire)', 'Edinburgh, City of', 'Fife', 'Glasgow, City of', 'Inverness-shire', 'Kincardineshire', 'Kinross-shire', 'Kirkcudbrightshire', 'Lanarkshire', 'Midlothian (County of Edinburgh)', 'Moray (Elginshire)', 'Nairnshire', 'Orkney', 'Peeblesshire', 'Perthshire', 'Renfrewshire', 'Ross and Cromarty', 'Ross-shire', 'Roxburghshire', 'Selkirkshire', 'Shetland (Zetland)', 'Stirlingshire', 'Sutherland', 'West Lothian (Linlithgowshire)', 'Wigtownshire', 'Clwyd', 'Dyfed', 'Gwent', 'Gwynedd', 'Mid Glamorgan', 'Powys', 'South Glamorgan', 'West Glamorgan');
-
+	$arr_state = ['',
+        'Ampara',
+        'Anuradhapura',
+        'Badulla',
+        'Batticaloa',
+        'Colombo',
+        'Galle',
+        'Gampaha',
+        'Hambantota',
+        'Jaffna',
+        'Kalutara',
+        'Kandy',
+        'Kegalle',
+        'Kilinochchi',
+        'Kurunegala',
+        'Mannar',
+        'Matale',
+        'Matara',
+        'Monaragala',
+        'Mullaitivu',
+        'Nuwara Eliya',
+        'Polonnaruwa',
+        'Puttalam',
+        'Ratnapura',
+        'Trincomalee',
+        'Vavuniya',
+];
 if(!isset($_SESSION['bfn'])) $_SESSION['bfn']="";
 if(!isset($_SESSION['bln'])) $_SESSION['bln']="";
 if(!isset($_SESSION['bad1'])) $_SESSION['bad1']="";
@@ -138,8 +163,8 @@ h2{border-bottom:1px solid rgba(255,255,255,.2); padding-bottom: 20px; margin-bo
 		<a class="x4a x4e" href="shopping/billing.php">Billing / Shipping Details</a>
 		<a class="x4a" href="<?php echo !empty($_SESSION['bem']) ? 'shopping/payment.php' : 'javascript:;'; ?>">Payments</a>
 	</div>
-	<h1>Billing/Shipping Information</h1>
-	<p>Please update your billing and shipping information</p>
+	<h1>Billing/delivery Information</h1>
+	<p>Please update your billing and delivery information</p>
 	<div id="zd">
 		<div class="zd1">
 			<form class="zf" autocomplete="off" method="post" action="shopping/billing.php">
@@ -208,7 +233,7 @@ h2{border-bottom:1px solid rgba(255,255,255,.2); padding-bottom: 20px; margin-bo
 				</label>
 		</div>
 		<div class="zd2">
-			<h2>Shipping Informaton</h2>
+			<h2>Delivery Informaton</h2>
 			<p id="zp"><input type="checkbox" id="zycheck"> Same as Billing details.</p>
 				<label class="x3lb">
 					<span class="x3s">First Name</span>

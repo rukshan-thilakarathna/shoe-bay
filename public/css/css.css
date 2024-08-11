@@ -61,8 +61,8 @@ h2{color: var(--color-3);}
  .e2:hover{background:#ebebeb;;}
 .a2{text-decoration: none;}
 #ft{border-top:3px solid rgba(255,255,255,.2);    background: var(--color-4);padding:30px 0; margin-top: 50px;}
-.a3{display: inline-block; float:left; clear:both; text-decoration: none; color:#fff; text-decoration: none; font-size: 17px;font-family: 'Cuprum', sans-serif; line-height:1.5;}
-.a3:hover{margin-left: 10px;color: #656464;}
+.a3{display: inline-block; float:left; clear:both; text-decoration: none; color:#7e7e7e; text-decoration: none; font-size: 17px;font-family: 'Cuprum', sans-serif; line-height:1.5;}
+.a3:hover{margin-left: 10px;color: #fff;}
 #p0{color:#fff; }
 #s0{    color: var(--color-1);
     padding: 0 5px;

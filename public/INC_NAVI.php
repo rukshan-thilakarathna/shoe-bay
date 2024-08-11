@@ -4,7 +4,7 @@
     <header id="hd">
         <div id="d1">
             <div id="d4" class="w">
-                <!-- <ul id="u1">
+                 <ul id="u1">
                     <li class="l1">
                         <a href="#" class="a1">
                             <img src="img/icon/view.png" alt="" class="i1">
@@ -16,7 +16,7 @@
                     </li>
                     <li class="l1">
                         <a href="#" class="a1">
-                            <img src="img/icon/view.png" alt="" class="i1">
+                            <img src="img/icon/insta.png" alt="" class="i1">
                         </a>
                         <div class="d2">
                             Follow On Facebook
@@ -25,7 +25,7 @@
                     </li>
                     <li class="l1">
                         <a href="#" class="a1">
-                            <img src="img/icon/view.png" alt="" class="i1">
+                            <img src="img/icon/tiktok.svg" alt="" class="i1">
                         </a>
                         <div class="d2">
                             Follow On Facebook
@@ -34,32 +34,24 @@
                     </li>
                     <li class="l1">
                         <a href="#" class="a1">
-                            <img src="img/icon/view.png" alt="" class="i1">
+                            <img src="img/icon/twitter.png" alt="" class="i1">
                         </a>
                         <div class="d2">
                             Follow On Facebook
                             <div class="d3"></div>
                         </div>
                     </li>
+
                     <li class="l1">
                         <a href="#" class="a1">
-                            <img src="img/icon/view.png" alt="" class="i1">
+                            <img src="img/icon/pintares.png" alt="" class="i1">
                         </a>
                         <div class="d2">
                             Follow On Facebook
                             <div class="d3"></div>
                         </div>
                     </li>
-                    <li class="l1">
-                        <a href="#" class="a1">
-                            <img src="img/icon/view.png" alt="" class="i1">
-                        </a>
-                        <div class="d2">
-                            Follow On Facebook
-                            <div class="d3"></div>
-                        </div>
-                    </li>
-                </ul> -->
+                </ul>
                 <span id="s1">Click me to get 10% off everything + Free Shipping!</span>
                 <span id="s1">Mail: Thilakarathnarukshan9@gmail.com</span>
                 <span id="s1">tel: 0762005399</span>
@@ -69,7 +61,7 @@
             <div id="d6" class="w">
                 <div id="d51">
                     <a href="#" id="a50"><img src="img/icon/menu.png" alt="menu" id="i6"></a>
-                    <a href="#" id="a3"><img src="img/icon/search.png" alt="search" id="i2"></a>
+                    <a href="search.php" id="a3"><img src="img/icon/search.png" alt="search" id="i2"></a>
                 </div>
                 <a href="#" id="a4"><img src="img/logo.png" alt="logo" id="i3"></a>
                 <div id="d7">
@@ -95,21 +87,35 @@
                         $sc->execute([1,0]);
                         $cat = $sc->fetchAll();
                         foreach($cat as $key => $c){
+                            $sc = $db->prepare("SELECT * FROM `categories` WHERE `az`=? AND `scid`=? ORDER BY `od`");
+                            $sc->execute([1,$c['cid']]);
+                            $cat = $sc->fetchAll();
+
                     ?>
                     <li class="l3">
                         <a href="category.php?c=<?php echo $c['uz'] ?>" class="a7"><?php echo $c['cn'] ?></a>
+                        <?php
+                            if (count($cat)>0){
+                        ?>
                         <ul class="u4">
                             <div class="d50"></div>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
-                            <li class="l4"><a href="#" class="a9">platforms</a></li>
+                            <?php
+                                foreach($cat as $key => $c){
+                            ?>
+
+                            <li class="l4">
+                                <a href="category.php?c=<?php echo $c['uz'] ?>" class="a9"><?php echo $c['cn'] ?></a>
+                            </li>
+
+                            <?php
+                                }
+                            ?>
+
                         </ul>
+
+                        <?php
+                            }
+                        ?>
                     </li>
                    <?php } ?>
                 </ul>

@@ -65,7 +65,7 @@ include "../INC_HEAD.php";
 		<a class="x4a x4e" id="x4a1" href="shopping/">Shopping Cart</a>
 		<a class="x4a" id="x4a2"href="<?php echo !empty($_SESSION['ez']) ? 'shopping/user.php' : 'javascript:;'; ?>">User Information</a>
 		<a class="x4a" id="x4a3"href="<?php echo !empty($_SESSION['bem']) ? 'shopping/billing.php' : 'javascript:;'; ?>">Billing / Shipping Details</a>
-		<a class="x4a" id="x4a4"href="<?php echo !empty($_SESSION['bem']) ? 'shopping/payment.php' : 'javascript:;'; ?>">Payments</a>
+		<a class="x4a" id="x4a4"href="javascript:;">Payments</a>
 	</div>
 	<h1>Shopping Cart</h1>
 	<?php
@@ -91,7 +91,7 @@ include "../INC_HEAD.php";
 				$allPrice += $totalPrice; 
 		?>
 		<div class="zr">
-			<div class="zc1">CW<?php echo $cart['item_id']; ?></div>
+			<div class="zc1"><?php echo $cart['item_id']; ?></div>
 			<div class="zc1">
 				<img src="items/<?php echo $cart['item_img']; ?>" alt="" class="zi">
 			</div>
@@ -103,8 +103,8 @@ include "../INC_HEAD.php";
 				<input class="a0 zbt" type="submit" value="Update">
 			</form>
 			</div>
-			<div class="zc3">£ <?php echo $cart['item_price']; ?></div>
-			<div class="zc3">£ <?php echo $totalPrice; ?></div>
+			<div class="zc3">LKR <?php echo $cart['item_price']; ?></div>
+			<div class="zc3">LKR <?php echo $totalPrice; ?></div>
 			<div class="zc3">
 				<form method="post" action="shopping/index.php">
 					<input type="hidden" name="delid" value="<?php echo $cart['item_id']; ?>">
@@ -115,23 +115,35 @@ include "../INC_HEAD.php";
 		<?php 
 			}
 		?>
+
 		<div class="zr ze">
 			<div class="zc1"></div>
+
 			<div class="zc1"></div>
+
 			<div class="zc2"></div>
+
 			<div class="zc3"><?php echo $allQty; ?></div>
+
 			<div class="zc3"></div>
-			<div class="zc3">£ <?php echo $allPrice; ?></div>
+
+			<div class="zc3">LKR <?php echo $allPrice; ?></div>
+
 			<div class="zc3">
 				<form method="post" action="shopping/index.php">
 					<input type="submit" name="delall" class="a0" value="Clear All">
 				</form>	
 			</div>
+
 		</div>
 	</div>
+
 	<div>
+
 		<a class="a2" href="shopping/user.php"><button class="x4e x4bt2">Continue</button></a>
+
 	</div>
+
 	<p>When you are done here, Please press the Continue button to fill billing and shopping address</p>
 	<?php
 		}else echo '<p>Cart is empty</p>';

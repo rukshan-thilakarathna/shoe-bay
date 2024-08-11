@@ -1,12 +1,73 @@
 <?php 
+require_once('../worldpay-lib-php/init.php');
+use \Worldpay\Worldpay;
 
+use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require '../phpmailer/src/Exception.php';
+//require '../phpmailer/src/SMTP.php';
+require '../phpmailer/src/PHPMailer.php';
 
 include "../INC_SESS.php"; 
+$ermsg = "";
+$table = "";
+$arr_state = array('','Avon', 'Bedfordshire', 'Berkshire', 'Bristol, City of', 'Buckinghamshire', 'Cambridgeshire', 'Cheshire', 'Cleveland', 'Cornwall', 'Cumbria', 'Derbyshire', 'Devon', 'Dorset', 'Durham', 'East Sussex', 'Essex', 'Gloucestershire', 'Greater London', 'Greater Manchester', 'Hampshire (County of Southampton)', 'Hereford and Worcester', 'Herefordshire', 'Hertfordshire', 'Isle of Wight', 'Kent', 'Lancashire', 'Leicestershire', 'Lincolnshire', 'London', 'Merseyside', 'Middlesex', 'Norfolk', 'Northamptonshire', 'Northumberland', 'North Humberside', 'North Yorkshire', 'Nottinghamshire', 'Oxfordshire', 'Rutland', 'Shropshire', 'Somerset', 'South Humberside', 'South Yorkshire', 'Staffordshire', 'Suffolk', 'Surrey', 'Tyne and Wear', 'Warwickshire', 'West Midlands', 'West Sussex', 'West Yorkshire', 'Wiltshire', 'Worcestershire', 'Antrim', 'Armagh', 'Belfast, City of', 'Down', 'Fermanagh', 'Londonderry', 'Derry, City of', 'Tyrone', 'Aberdeen, City of', 'Aberdeenshire', 'Angus (Forfarshire)', 'Argyll', 'Ayrshire', 'Banffshire', 'Berwickshire', 'Bute', 'Caithness', 'Clackmannanshire', 'Cromartyshire', 'Dumfriesshire', 'Dunbartonshire (Dumbarton)', 'Dundee, City of', 'East Lothian (Haddingtonshire)', 'Edinburgh, City of', 'Fife', 'Glasgow, City of', 'Inverness-shire', 'Kincardineshire', 'Kinross-shire', 'Kirkcudbrightshire', 'Lanarkshire', 'Midlothian (County of Edinburgh)', 'Moray (Elginshire)', 'Nairnshire', 'Orkney', 'Peeblesshire', 'Perthshire', 'Renfrewshire', 'Ross and Cromarty', 'Ross-shire', 'Roxburghshire', 'Selkirkshire', 'Shetland (Zetland)', 'Stirlingshire', 'Sutherland', 'West Lothian (Linlithgowshire)', 'Wigtownshire', 'Clwyd', 'Dyfed', 'Gwent', 'Gwynedd', 'Mid Glamorgan', 'Powys', 'South Glamorgan', 'West Glamorgan');
+date_default_timezone_set("Europe/London");
+if(empty($_SESSION['cart'])) header("Location:index.php");
 
-include "INC_PG.php";
-
-include "../INC_HEAD.php";
-
+if(!isset($_SESSION['tpr'])) $_SESSION['tpr']=0; 
+if(isset($_POST['name'])){
+	$p = $db->prepare("SELECT `uid` FROM `users` WHERE `ez`=?");
+	$p->execute(array($_SESSION['ez']));
+	if($r1 = $p->fetch()) {
+		$uid = $r1['uid'];
+		$date = date('H:i:s');
+		$db->prepare("INSERT INTO `orders` (`uid`, `bfn`, `bln`, `bad1`, `bad2`, `bad3`, `bpz`, `bzp`, `bct`, `bst`, `bem`, `sfn`, `sln`, `sad1`, `sad2`, `sad3`, `spz`, `szp`, `sct`, `sst`, `sem`, `dt`, `tz`, `tpr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")->execute(array($uid, $_SESSION['bfn'], $_SESSION['bln'], $_SESSION['bad1'], $_SESSION['bad2'], $_SESSION['bad3'], $_SESSION['bpz'], $_SESSION['bzp'], $_SESSION['bct'], $_SESSION['bst'], $_SESSION['bem'], $_SESSION['sfn'], $_SESSION['sln'], $_SESSION['sad1'], $_SESSION['sad2'], $_SESSION['sad3'], $_SESSION['spz'], $_SESSION['szp'], $_SESSION['sct'], $_SESSION['sst'], $_SESSION['sem'], date('Y-m-d'), $date, $_SESSION['tpr']));
+		$oid = $db->lastInsertId();
+		if($oid){
+			// billing details
+			$table.="<h2 style=\"font-family: \'Nunito Sans\';color:#444444; padding:10px; text-align:center; font-size:18px;\">Billing Details</h2><table border=\"1\" rules=\"all\">";
+			$table.="<tr><td>First Name</td><td>".$_SESSION['bfn']."</td></tr>";
+			$table.="<tr><td>Last Name</td><td>".$_SESSION['bln']."</td></tr>";
+			$table.="<tr><td valign=\"top\">Address</td><td>".$_SESSION['bad1']."<br>".$_SESSION['bad2']."<br>".$_SESSION['bad3']."</td></tr>";
+			$table.="<tr><td>City</td><td>".$_SESSION['bct']."</td></tr>";
+			$table.="<tr><td>State</td><td>".$arr_state[$_SESSION['bst']]."</td></tr>";
+			$table.="<tr><td>ZIP Code</td><td>".$_SESSION['bzp']."</td></tr>";
+			$table.="<tr><td>Phone Number</td><td>".$_SESSION['bpz']."</td></tr>";
+			$table.="<tr><td>Email Address</td><td>".$_SESSION['bem']."</td></tr>";
+			$table.="</table>";
+			
+			// shipping details
+			$table.="<h2 style=\"font-family: \'Nunito Sans\';color:#444444; padding:10px; text-align:center; font-size:18px;\">Shipping Details</h2><table border=\"1\" rules=\"all\">";
+			$table.="<tr><td>First Name</td><td>".$_SESSION['sfn']."</td></tr>";
+			$table.="<tr><td>Last Name</td><td>".$_SESSION['sln']."</td></tr>";
+			$table.="<tr><td valign=\"top\">Address</td><td>".$_SESSION['sad1']."<br>".$_SESSION['sad2']."<br>".$_SESSION['sad3']."</td></tr>";
+			$table.="<tr><td>City</td><td>".$_SESSION['sct']."</td></tr>";
+			$table.="<tr><td>State</td><td>".$arr_state[$_SESSION['sst']]."</td></tr>";
+			$table.="<tr><td>ZIP Code</td><td>".$_SESSION['szp']."</td></tr>";
+			$table.="<tr><td>Phone Number</td><td>".$_SESSION['spz']."</td></tr>";
+			$table.="<tr><td>Email Address</td><td>".$_SESSION['sem']."</td></tr>";
+			$table.="</table>";
+			
+			$table.="<h2 style=\"font-family: \'Nunito Sans\';color:#444444; padding:10px; text-align:center; font-size:18px;\">Items</h2><table border=\"1\" rules=\"all\"><tr><td>Item ID</td><td>Name</td><td>Price</td><td>Qty</td><td>Total</td></tr>";
+			foreach($_SESSION['cart'] as $cart){
+				$db->prepare("INSERT INTO `orderitems` (`oid`, `iid`, `ina`, `ipr`, `iqt`) VALUES (?,?,?,?,?)")->execute(array($oid, $cart['item_id'], $cart['item_name'], $cart['item_price'], $cart['item_qty']));
+				$table.="<tr><td>".$cart['item_id']."</td><td>".$cart['item_name']."</td><td>".$cart['item_price']."</td><td>".$cart['item_qty']."</td><td>".($cart['item_price']*$cart['item_qty'])."</td></tr>";
+			}
+			$table.="<tr><td></td><td></td><td></td><td></td><td>".$_SESSION['tpr']."</td></tr></table>";
+			
+		/// payments
+			// Initialise Worldpay class with your SERVICE KEY
+			$worldpay = new Worldpay('L_S_265202d1-59b0-4e7b-94fe-2aa97285728a');
+			// mail sending class
+			$mail = new PHPMailer(true);
+		include "INC_PG.php";
+		/// payments	
+		}
+	}else header("Location:user.php");
+}
+include "../INC_HEAD.php"; 
 ?>
 <title>Payment - SukeeFashion</title>
 <link href="<?php echo BASE; ?>css/x3-forms.css?jk" rel="stylesheet">
@@ -63,8 +124,8 @@ h2{border-bottom:1px solid rgba(255,255,255,.2); padding-bottom: 20px; margin-bo
 				</div>
 			</div>
 			<form class="zf" action="https://sandbox.payhere.lk/pay/checkout" id="paymentForm" method="post">
-
-                <input type="hidden" name="merchant_id" value="1221531">
+                <!-- <input type="hidden" name="merchant_id" value="1221531"> -->
+                <input type="hidden" name="merchant_id" value="215956">
                 <input type="hidden" name="return_url" value="https://riverston.com/payment.php">
                 <input type="hidden" name="cancel_url" value="https://riverston.com/payment.php">
                 <input type="hidden" name="notify_url" value="https://riverston.com/notify.php">
@@ -167,39 +228,33 @@ h2{border-bottom:1px solid rgba(255,255,255,.2); padding-bottom: 20px; margin-bo
 			$_SESSION['tpr'] = 0;
 	?>
 			<div class="x6d">
-
 				<div class="x6r x6e">
 					<div class="x6c1">Item ID</div>
 					<div class="x6c2">Item Name</div>
 					<div class="x6c3">Quantity</div>
 					<div class="x6c3">Total</div>
 				</div>
-
 				<?php
 					foreach($_SESSION['cart'] as $cart){
 						$totalPrice = $cart['item_price']*$cart['item_qty'];
 						$allQty += $cart['item_qty']; 
 						$_SESSION['tpr'] += $totalPrice; 
 				?>
-
 				<div class="x6r">
-					<div class="x6c1"><?php echo $cart['item_id']; ?></div>
+					<div class="x6c1">CW<?php echo $cart['item_id']; ?></div>
 					<div class="x6c2"><?php echo $cart['item_name']; ?></div>
 					<div class="x6c3"><?php echo $cart['item_qty']; ?></div>
-					<div class="x6c3">LKR <?php echo $totalPrice; ?></div>
-				</div>
-
+					<div class="x6c3">£ <?php echo $totalPrice; ?></div>
+				</div>	
 				<?php 
 					}
 				?>
-
 				<div class="x6r x6e">
 					<div class="x6c1"></div>
 					<div class="x6c2"></div>
 					<div class="x6c3"><?php echo $allQty; ?></div>
-					<div class="x6c3">LKR <?php echo $_SESSION['tpr']; ?></div>
+					<div class="x6c3">£ <?php echo $_SESSION['tpr']; ?></div>
 				</div>
-
 			</div>
 	<?php
 		}else echo '<p>Cart is empty</p>';

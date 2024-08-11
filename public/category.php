@@ -48,26 +48,8 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 <div class="w">
 	<h1><?php echo $s['cn']; ?></h1>
 	<p class="zp"><?php echo $s['cd']; ?></p>
-	
-	<div id="x1d">
-		<div id="x1d1">
-			<button class="bt" id="x1bt"></button>
-			<nav id="x1n">
 
-				<span class="x1s0">All Categories</span>
-				<?php
-					$q3 = $db->prepare("SELECT * FROM `categories` WHERE `az`>? AND `scid` = ? ");
-					$q3->execute(array(0,0));
-					$catmenu = $q3->fetchAll();
-					if(count($catmenu)>0){
-						foreach($catmenu as $m){
-							echo '<a href="category.php?c=',$m['uz'],'" class="x1a">',$m['cn'],'</a>';
-						}
-					}
-				?>
-			</nav>
-		</div>	
-		<div id="x1d2" style="width: 100%">
+    <div id="x1d2" style="width: 100%;display: flex;flex-direction: column;margin-top: 50px;">
 			<div class="r">
 				<?php
 					
@@ -143,7 +125,7 @@ if(!isset($_GET['c']) || empty($_GET['c'])) {
 			?>
 		</nav>
 		</div>	
-	</div>
+
 </div>
 
 <script>
